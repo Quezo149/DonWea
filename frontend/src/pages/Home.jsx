@@ -15,7 +15,14 @@ function Home() {
           <p>Crea códigos QR instantáneos para tus enlaces.</p>
         </Link>
 
-        {/* Tarjeta 2: Próximamente (Placeholder) */}
+        {/* Tarjeta 2: Generador de Claves */}
+        <Link to="/pass-generator" className="tool-card">
+          <span style={{ fontSize: '40px' }}>🔐</span>
+          <h3>Generador de Claves</h3>
+          <p>Crea contraseñas seguras y aleatorias al instante.</p>
+        </Link>
+
+        {/* Tarjeta 3: Próximamente (Placeholder) */}
         <div className="tool-card" style={{ opacity: 0.5, cursor: 'not-allowed' }}>
           <span style={{ fontSize: '40px' }}>🚧</span>
           <h3>Próximamente</h3>
