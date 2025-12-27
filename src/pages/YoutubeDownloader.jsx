@@ -5,18 +5,16 @@ function YoutubeDownloader() {
   const [videoInfo, setVideoInfo] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"
 
-  // Estados para la configuración de descarga
-  const [downloadType, setDownloadType] = useState('video') // 'video' o 'audio'
+  const [downloadType, setDownloadType] = useState('video')
   const [selectedFormat, setSelectedFormat] = useState('mp4')
 
-  // Opciones disponibles
   const formatOptions = {
     video: ['mp4', 'mkv', 'webm'],
     audio: ['mp3', 'm4a', 'wav', 'flac', 'aac']
   }
 
-  // Efecto: Cuando cambiamos entre Video/Audio, reseteamos el formato al primero de la lista
   useEffect(() => {
     setSelectedFormat(formatOptions[downloadType][0])
   }, [downloadType])
@@ -28,7 +26,7 @@ function YoutubeDownloader() {
     setVideoInfo(null)
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/video-info?url=${encodeURIComponent(url)}`)
+      const response = await fetch(`${API_URL}/video-info?url=${encodeURIComponent(url)}`)
       if (!response.ok) throw new Error('No se pudo encontrar el video.')
       const data = await response.json()
       setVideoInfo(data)
@@ -42,14 +40,11 @@ function YoutubeDownloader() {
   function handleDownload() {
       if (!url) return
       
-      // Construimos la URL mágica del backend
-      // encodeURIComponent es vital para que los símbolos (&, ?) de la URL de YT no rompan todo
-      const downloadUrl = `http://127.0.0.1:8000/download?url=${encodeURIComponent(url)}&type=${downloadType}&format=${selectedFormat}`
+      const downloadUrl = `${API_URL}/download?url=${encodeURIComponent(url)}&type=${downloadType}&format=${selectedFormat}`
       
-      // Truco clásico: Redirigir el navegador a esa URL fuerza la descarga
       window.location.href = downloadUrl
       
-      // Opcional: Avisar visualmente que empezó
+
       alert("🚀 La descarga ha comenzado en el servidor.\nDependiendo del largo del video, puede tardar unos segundos en aparecer el archivo.")
     }
 
