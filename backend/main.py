@@ -52,6 +52,7 @@ def get_video_info(url: str):
         'force_ipv4': True, 'socket_timeout': 15,
         'extract_flat': True, 'user_agent': FAKE_USER_AGENT,
         'noplaylist': True,
+        'cookiefile': 'cookies.txt',
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -87,6 +88,7 @@ def download_video(url: str, type: str, format: str, background_tasks: Backgroun
             'add_metadata': True,
             'force_ipv4': True, 'socket_timeout': 60,
             'user_agent': FAKE_USER_AGENT, 'noplaylist': True,
+            'cookiefile': 'cookies.txt',
         }
 
         # Construcción de postprocesadores
