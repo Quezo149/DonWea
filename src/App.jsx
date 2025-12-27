@@ -1,16 +1,22 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
+import Toolbox from './pages/ToolBox'
 import QrGenerator from './pages/QRGenerator'
-function App() {
+import PasswordGenerator from './pages/PasswordGenerator'
+import YoutubeDownloader from './pages/YoutubeDownloader'
 
+function App() {
   return (
     <div>
       <Navbar />
       <div style={{ padding: '20px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/toolbox" element={<Toolbox />} />
           <Route path="/qr-generator" element={<QrGenerator />} />
+          <Route path="/password-generator" element={<PasswordGenerator />} />
+          <Route path="/youtube-downloader" element={<YoutubeDownloader />} />
         </Routes>
       </div>
     </div>
