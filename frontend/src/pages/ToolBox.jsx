@@ -20,8 +20,15 @@ function Toolbox() {
           <h3>Generador de Claves</h3>
           <p>Crea contraseñas seguras y aleatorias al instante.</p>
         </Link>
+
+        {/* Tarjeta 3: YouTube */}
+        <Link to="/youtube-downloader" className="tool-card">
+          <span style={{ fontSize: '40px' }}>📺</span>
+          <h3>Descargador YT</h3>
+          <p>Descarga videos y audios en alta calidad.</p>
+        </Link>
         
-        {/* Tarjeta 3: Placeholder */}
+        {/* Tarjeta 4: Placeholder */}
         <div className="tool-card" style={{ opacity: 0.5, cursor: 'not-allowed' }}>
           <span style={{ fontSize: '40px' }}>🚧</span>
           <h3>Próximamente</h3>

@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Toolbox from './pages/ToolBox'
 import QrGenerator from './pages/QRGenerator'
 import PasswordGenerator from './pages/PasswordGenerator'
+import YoutubeDownloader from './pages/YoutubeDownloader'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/toolbox" element={<Toolbox />} />
           <Route path="/qr-generator" element={<QrGenerator />} />
           <Route path="/password-generator" element={<PasswordGenerator />} />
+          <Route path="/youtube-downloader" element={<YoutubeDownloader />} />
         </Routes>
       </div>
     </div>
